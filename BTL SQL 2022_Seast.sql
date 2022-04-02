@@ -48,3 +48,18 @@ BEGIN
 		end
 	return @res
 END
+
+create trigger trg_addSeats on phongchieu for insert
+as
+begin
+	declare @maphong char(10)
+	set @maphong = (select maphong from inserted)
+	insert into seats values(@maphong, '1', 0, 0, 0, 0, 0, 0, 0)
+	insert into seats values(@maphong, '2', 0, 0, 0, 0, 0, 0, 0)
+	insert into seats values(@maphong, '3', 0, 0, 0, 0, 0, 0, 0)
+	insert into seats values(@maphong, '4', 0, 0, 0, 0, 0, 0, 0)
+	insert into seats values(@maphong, '5', 0, 0, 0, 0, 0, 0, 0)
+	insert into seats values(@maphong, '6', 0, 0, 0, 0, 0, 0, 0)
+	insert into seats values(@maphong, '7', 0, 0, 0, 0, 0, 0, 0)
+end
+go
