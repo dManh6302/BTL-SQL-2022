@@ -38,7 +38,13 @@ BEGIN
 END
 ------------------------------------------------------------------------
 ----------------------NHẬP DỮ LIỆU--------------------------------------
-------------------------------------------------------------------------
+
+INSERT INTO LICHCHIEU VALUES('MP02','R2','SC001','2-5-2022')
+INSERT INTO LICHCHIEU VALUES('MP03','R2','SC002','5-5-2022')
+INSERT INTO LICHCHIEU VALUES('MP01','R1','SC002','5-6-2022')
+INSERT INTO LICHCHIEU VALUES('MP04','R2','SC002','3-5-2022')
+INSERT INTO LICHCHIEU VALUES('MP05','R1','SC003','10-5-2022')
+INSERT INTO LICHCHIEU VALUES('MP06','R2','SC001','12-4-2022')
 SELECT * FROM SuatChieu
 SELECT * FROM PHIM
 SELECT * FROM LICHCHIEU
