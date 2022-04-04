@@ -1,4 +1,5 @@
-﻿create table LoaiVe(
+﻿USE BTL_SQL_2022
+create table LoaiVe(
 	MaLV char(5) primary key,
 	TenV nvarchar(20),
 	DonGia int
