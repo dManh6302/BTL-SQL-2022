@@ -16,26 +16,26 @@ CONSTRAINT FK_seats_Rooms
 drop table Seats
 
 ----kiểm tra xem ghế đó có còn trống ko
-alter FUNCTION func_checkSeat (@maphong char(10), @mahang char(1), @column char(1), @masc char(5), @ngaychieu date)
+alter FUNCTION func_checkSeat (@maphong char(10), @maghe char(4), @masc char(5), @ngaychieu date)
 RETURNS INT
 AS
 BEGIN
 	declare @res int;
 		begin
-		if(@column = 'A')
-			set @res = (select columnA from V_SOGHETRONGNGAY where mahang = @mahang and maphong = @maphong and NGAYCHIEU = @ngaychieu and MaSC = @masc);
-		if(@column = 'B') 
-			set @res = (select columnB from V_SOGHETRONGNGAY where mahang = @mahang and maphong = @maphong and NGAYCHIEU = @ngaychieu and MaSC = @masc);
-		if(@column = 'C') 
-			set @res = (select columnC from V_SOGHETRONGNGAY where mahang = @mahang and maphong = @maphong and NGAYCHIEU = @ngaychieu and MaSC = @masc);
-		if(@column = 'D') 
-			set @res = (select columnD from V_SOGHETRONGNGAY where mahang = @mahang and maphong = @maphong and NGAYCHIEU = @ngaychieu and MaSC = @masc);
-		if(@column = 'E') 
-			set @res = (select columnE from V_SOGHETRONGNGAY where mahang = @mahang and maphong = @maphong and NGAYCHIEU = @ngaychieu and MaSC = @masc);
-		if(@column = 'F') 
-			set @res = (select columnF from V_SOGHETRONGNGAY where mahang = @mahang and maphong = @maphong and NGAYCHIEU = @ngaychieu and MaSC = @masc);
-		if(@column = 'G') 
-			set @res = (select columnG from V_SOGHETRONGNGAY where mahang = @mahang and maphong = @maphong and NGAYCHIEU = @ngaychieu and MaSC = @masc);
+		if(SUBSTRING(@maghe,4,1) = 'A')
+			set @res = (select columnA from V_SOGHETRONGNGAY where mahang = SUBSTRING(@maghe,3,1) and maphong = SUBSTRING(@maghe,1,2) and NGAYCHIEU = @ngaychieu and MaSC = @masc);
+		if(SUBSTRING(@maghe,4,1) = 'B') 
+			set @res = (select columnB from V_SOGHETRONGNGAY where mahang = SUBSTRING(@maghe,3,1) and maphong = SUBSTRING(@maghe,1,2) and NGAYCHIEU = @ngaychieu and MaSC = @masc);
+		if(SUBSTRING(@maghe,4,1) = 'C') 
+			set @res = (select columnC from V_SOGHETRONGNGAY where mahang = SUBSTRING(@maghe,3,1) and maphong = SUBSTRING(@maghe,1,2) and NGAYCHIEU = @ngaychieu and MaSC = @masc);
+		if(SUBSTRING(@maghe,4,1) = 'D') 
+			set @res = (select columnD from V_SOGHETRONGNGAY where mahang = SUBSTRING(@maghe,3,1) and maphong = SUBSTRING(@maghe,1,2) and NGAYCHIEU = @ngaychieu and MaSC = @masc);
+		if(SUBSTRING(@maghe,4,1) = 'E') 
+			set @res = (select columnE from V_SOGHETRONGNGAY where mahang = SUBSTRING(@maghe,3,1) and maphong = SUBSTRING(@maghe,1,2) and NGAYCHIEU = @ngaychieu and MaSC = @masc);
+		if(SUBSTRING(@maghe,4,1) = 'F') 
+			set @res = (select columnF from V_SOGHETRONGNGAY where mahang = SUBSTRING(@maghe,3,1) and maphong = SUBSTRING(@maghe,1,2) and NGAYCHIEU = @ngaychieu and MaSC = @masc);
+		if(SUBSTRING(@maghe,4,1) = 'G') 
+			set @res = (select columnG from V_SOGHETRONGNGAY where mahang = SUBSTRING(@maghe,3,1) and maphong = SUBSTRING(@maghe,1,2) and NGAYCHIEU = @ngaychieu and MaSC = @masc);
 		end
 	return @res
 END
@@ -72,7 +72,6 @@ returns table
 as
 return	
 	select * from seats where maphong = @maphong
-
 
 ----View hiện ghế tất cả các phòng
 create VIEW V_SOGHETRONGNGAY
