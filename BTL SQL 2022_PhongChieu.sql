@@ -1,4 +1,4 @@
-﻿CREATE TABLE phongchieu(
+﻿create TABLE phongchieu(
 maPhong char(10)primary key,
 tenPhong nvarchar(35),
 soLuongCho int

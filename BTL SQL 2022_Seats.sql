@@ -16,29 +16,32 @@ CONSTRAINT FK_seats_Rooms
 drop table Seats
 
 ----kiểm tra xem ghế đó có còn trống ko
-alter FUNCTION func_checkSeat (@maphong char(10), @maghe char(4), @masc char(5), @ngaychieu date)
+CREATE FUNCTION func_checkSeat (@maphong char(10), @maghe char(4), @masc char(5), @ngaychieu date)
 RETURNS INT
 AS
 BEGIN
 	declare @res int;
 		begin
-		if(SUBSTRING(@maghe,4,1) = 'A')
-			set @res = (select columnA from V_SOGHETRONGNGAY where mahang = SUBSTRING(@maghe,3,1) and maphong = SUBSTRING(@maghe,1,2) and NGAYCHIEU = @ngaychieu and MaSC = @masc);
-		if(SUBSTRING(@maghe,4,1) = 'B') 
-			set @res = (select columnB from V_SOGHETRONGNGAY where mahang = SUBSTRING(@maghe,3,1) and maphong = SUBSTRING(@maghe,1,2) and NGAYCHIEU = @ngaychieu and MaSC = @masc);
-		if(SUBSTRING(@maghe,4,1) = 'C') 
-			set @res = (select columnC from V_SOGHETRONGNGAY where mahang = SUBSTRING(@maghe,3,1) and maphong = SUBSTRING(@maghe,1,2) and NGAYCHIEU = @ngaychieu and MaSC = @masc);
-		if(SUBSTRING(@maghe,4,1) = 'D') 
-			set @res = (select columnD from V_SOGHETRONGNGAY where mahang = SUBSTRING(@maghe,3,1) and maphong = SUBSTRING(@maghe,1,2) and NGAYCHIEU = @ngaychieu and MaSC = @masc);
-		if(SUBSTRING(@maghe,4,1) = 'E') 
-			set @res = (select columnE from V_SOGHETRONGNGAY where mahang = SUBSTRING(@maghe,3,1) and maphong = SUBSTRING(@maghe,1,2) and NGAYCHIEU = @ngaychieu and MaSC = @masc);
-		if(SUBSTRING(@maghe,4,1) = 'F') 
-			set @res = (select columnF from V_SOGHETRONGNGAY where mahang = SUBSTRING(@maghe,3,1) and maphong = SUBSTRING(@maghe,1,2) and NGAYCHIEU = @ngaychieu and MaSC = @masc);
-		if(SUBSTRING(@maghe,4,1) = 'G') 
-			set @res = (select columnG from V_SOGHETRONGNGAY where mahang = SUBSTRING(@maghe,3,1) and maphong = SUBSTRING(@maghe,1,2) and NGAYCHIEU = @ngaychieu and MaSC = @masc);
+		if(SUBSTRING(@maghe,3,1) = 'A')
+			set @res = (select columnA from V_SOGHETRONGNGAY where mahang = SUBSTRING(@maghe,4,1) and maphong = SUBSTRING(@maghe,1,2) and NGAYCHIEU = @ngaychieu and MaSC = @masc);
+		if(SUBSTRING(@maghe,3,1) = 'B') 
+			set @res = (select columnB from V_SOGHETRONGNGAY where mahang = SUBSTRING(@maghe,4,1) and maphong = SUBSTRING(@maghe,1,2) and NGAYCHIEU = @ngaychieu and MaSC = @masc);
+		if(SUBSTRING(@maghe,3,1) = 'C') 
+			set @res = (select columnC from V_SOGHETRONGNGAY where mahang = SUBSTRING(@maghe,4,1) and maphong = SUBSTRING(@maghe,1,2) and NGAYCHIEU = @ngaychieu and MaSC = @masc);
+		if(SUBSTRING(@maghe,3,1) = 'D') 
+			set @res = (select columnD from V_SOGHETRONGNGAY where mahang = SUBSTRING(@maghe,4,1) and maphong = SUBSTRING(@maghe,1,2) and NGAYCHIEU = @ngaychieu and MaSC = @masc);
+		if(SUBSTRING(@maghe,3,1) = 'E') 
+			set @res = (select columnE from V_SOGHETRONGNGAY where mahang = SUBSTRING(@maghe,4,1) and maphong = SUBSTRING(@maghe,1,2) and NGAYCHIEU = @ngaychieu and MaSC = @masc);
+		if(SUBSTRING(@maghe,3,1) = 'F') 
+			set @res = (select columnF from V_SOGHETRONGNGAY where mahang = SUBSTRING(@maghe,4,1) and maphong = SUBSTRING(@maghe,1,2) and NGAYCHIEU = @ngaychieu and MaSC = @masc);
+		if(SUBSTRING(@maghe,3,1) = 'G') 
+			set @res = (select columnG from V_SOGHETRONGNGAY where mahang = SUBSTRING(@maghe,4,1) and maphong = SUBSTRING(@maghe,1,2) and NGAYCHIEU = @ngaychieu and MaSC = @masc);
 		end
 	return @res
 END
+
+SELECT * FROM V_SOGHETRONGNGAY
+PRINT DBO.FUNC_CHECKSEAT('R1', 'R1B2', 'SC001', '2022-01-05')
 
 ---TRIGGER TỰ ĐỘNG THÊM GHẾ KHI THÊM PHÒNG
 create trigger trg_addSeats on phongchieu for insert
@@ -79,3 +82,11 @@ AS
 	SELECT seats.maphong, Seats.mahang, Seats.columnA, Seats.columnB, Seats.columnC, Seats.columnD, Seats.columnE, Seats.columnF, Seats.columnG,
 			LICHCHIEU.NGAYCHIEU, LICHCHIEU.MaSC
 	FROM Seats, LICHCHIEU
+
+
+select * from V_SOGHETRONGNGAY
+update V_SOGHETRONGNGAY 
+	set columnA = 1 
+
+	print dbo.func_checkseat('R1', 'R1A1', 'SC001', '2022-01-04')
+
