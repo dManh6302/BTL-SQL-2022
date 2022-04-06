@@ -10,6 +10,21 @@
 	select * from phongchieu
 	select * from Seats
 
+	INSERT INTO LICHCHIEU VALUES('MP02','R2','SC001','2-5-2022')
+	INSERT INTO LICHCHIEU VALUES('MP03','R2','SC002','5-5-2022')
+	INSERT INTO LICHCHIEU VALUES('MP01','R1','SC002','5-6-2022')
+	INSERT INTO LICHCHIEU VALUES('MP04','R2','SC002','3-5-2022')
+	INSERT INTO LICHCHIEU VALUES('MP05','R1','SC003','10-5-2022')
+	INSERT INTO LICHCHIEU VALUES('MP06','R2','SC001','12-4-2022')
+
+	EXEC sp_ThemLichChieu 'MP10', 'R3', 'SC006','2-4-2022'
+	EXEC sp_ThemLichChieu 'MP09', 'R1', 'SC005','12-4-2022'
+	EXEC sp_ThemLichChieu 'MP15', 'R1', 'SC005','12-4-2022'
+	EXEC sp_ThemLichChieu 'MP16', 'R2', 'SC002','13-4-2022'
+	EXEC sp_ThemLichChieu 'MP02', 'R2', 'SC004','15-4-2022'
+	EXEC sp_ThemLichChieu 'MP07', 'R3', 'SC003','16-4-2022'
+	EXEC sp_ThemLichChieu 'MP08', 'R3', 'SC001','15-4-2022'
+
 --------------------------------------------------------
 -- Thủ tục xem thông tin những phim chiếu trong ngày chỉ định 
 CREATE PROC sp_PhimTrongNgay @NgayChieu date 

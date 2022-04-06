@@ -19,8 +19,6 @@ begin
 	end
 end
 
-EXEC proc_AddRoom 'R2', N'PHÒNG CHIẾU SỐ 2'
-EXEC proc_AddRoom 'R3', N'PHÒNG CHIẾU SỐ 3'
 
 ------Thủ tục xóa phòng chiếu
 alter proc proc_DeleteRoom @maphong char(10)

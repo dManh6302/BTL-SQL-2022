@@ -32,14 +32,16 @@ begin
 			
 			declare @maphong char(5), @column char(5), @mahang char(5), @masc char(5), @ngaychieu date, @maghe char(4)
 			set @maghe = (select maghe from VE where mave = @mave)
-			set @maphong = (select substring(@mave, 1,2))
+			set @maphong = (select substring(@maghe, 1,2))
 			set @column = (select substring(@maghe, 3, 1))
 			set @mahang = (select substring(@maghe, 4, 1))
 			set @masc = (select masc from Ve where mave = @mave)
 			set @ngaychieu = (select ngaychieu from ve where mave = @mave)
 
 			if(@column = 'A')
+			begin
 				update Seats set columnA = 0 where mahang = @mahang and maphong = @maphong and masc = @masc and NGAYCHIEU = @ngaychieu
+			end
 			else if(@column = 'B')
 				update Seats set columnB = 0 where mahang = @mahang and maphong = @maphong and masc = @masc and NGAYCHIEU = @ngaychieu
 			else if(@column = 'C')
@@ -58,7 +60,8 @@ begin
 		print N'Mã vé [' + @mave + N'] đã bị hủy trước đó rồi !'
 end
 
-DROP PROC sp_huyVe
+
+
 --THỦ TỤC THÊM VÉ 
 alter proc sp_themVe (@mave char(10), @makh char(10), @manv char(10), @maLv char(5), @maphim char(10), @maphong char(10), @masc char(5), @maghe char(5), @trangthai NVARchar(25), @ngaychieu date) 
 as
@@ -146,6 +149,7 @@ begin
 
 	EXEC sp_huyVe 'SQL0001'
 	
+	select * from Seats
 	update Seats 
 	set columnA = 0 WHERE mahang = '1'
 	delete from ve

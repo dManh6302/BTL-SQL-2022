@@ -19,6 +19,15 @@ INSERT INTO PHIM VALUES('MP05', 'ML03', N'Love, Roise');
 INSERT INTO PHIM VALUES('MP06', 'ML04', N'Bẫy linh hồn');
 INSERT INTO PHIM VALUES('MP07', 'ML05', N'Zombieland');
 
+INSERT INTO PHIM VALUES('MP09', 'ML01', N'Morbius');
+INSERT INTO PHIM VALUES('MP10', 'ML05', N'Thầy Đạt và những người bạn');
+INSERT INTO PHIM VALUES('MP11', 'ML05', N'Thành phố mất tích');
+INSERT INTO PHIM VALUES('MP12', 'ML04', N'Bóng đè');
+INSERT INTO PHIM VALUES('MP13', 'ML04', N'Vết nứt-Ám hồn trong tranh');
+INSERT INTO PHIM VALUES('MP14', 'ML01', N'Batman');
+INSERT INTO PHIM VALUES('MP15', 'ML02', N'Những kẻ xấu xa');
+INSERT INTO PHIM VALUES('MP16', 'ML01', N'Xe cấp cứu');
+
 SELECT * FROM PHIM
 -- Tạo thủ tục thêm trong bảng LOAIPHIM
 CREATE PROC sp_ThemLoaiPhim @MaLoai char(10), @TenLoaiPhim nvarchar(100)
