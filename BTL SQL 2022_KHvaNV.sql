@@ -28,6 +28,38 @@ insert into KHACHHANG values('KH25',N'Lê Hồng Hưng',N'Thanh Miện, Hải D�
 insert into KHACHHANG values('KH15',N'Triệu Tuyết Vy',N'Hoàn Kiếm, Hà Nội','0985372589',N'Nữ','2004-01-10')
 insert into KHACHHANG values('KH16',N'Phạm Anh Khoa',N'Thanh Xuân, Hà Nội','0985272513',N'Nam','1983-11-10')
 
+EXEC sp_ThemKH 'KH21',N'Lò Hoay Sủi',N'Sông Mã, Sơn La','0985211517',N'Nam','1973-02-11'
+EXEC sp_ThemKH 'KH22',N'Tống Văn Giang',N'TP.Cao Bằng, Cao Bằng','0985210517',N'Nam','1993-04-15'
+EXEC sp_ThemKH 'KH23',N'Lương Chiến Thắng',N'Sơn Dương, Tuyên Quang','0975211517',N'Nam','1979-12-11'
+EXEC sp_ThemKH 'KH24',N'Trần Văn Kiên',N'Lý Nhân, Hà Nam','0985221517',N'Nam','2002-11-11'
+EXEC sp_ThemKH 'KH33',N'Lăng Thị Thư',N'Lục Ngạn, Bắc Giang','0985231517',N'Nữ','2002-01-31'
+EXEC sp_ThemKH 'KH26',N'Võ Quỳnh Nga',N'Thuận Thành, Bắc Ninh','0975211527',N'Nữ','2005-02-21'
+EXEC sp_ThemKH 'KH27',N'Võ Văn Sĩ',N'Thuận Thành, Bắc Ninh','0975211518',N'Nam','1978-02-21'
+EXEC sp_ThemKH 'KH29',N'Lục Đoãn Cao Thiện',N'TP.Cao Bằng, Cao Bằng','0985200517',N'Nam','2006-03-11'
+EXEC sp_ThemKH 'KH31',N'Lục Trần Đăng Cao',N'TP.Cao Bằng, Cao Bằng','0985200518',N'Nam','1983-11-11'
+EXEC sp_ThemKH 'KH32',N'Trần Đăng Thiên',N'Phù Cừ, Hưng Yên','0986200517',N'Nam','1999-12-12'
+EXEC sp_ThemKH 'KH34',N'Nguyễn Hoa Sơn',N'Hai Bà Trưng, Hà Nội','0986300517',N'Nam','2002-02-22'
+EXEC sp_ThemKH 'KH36',N'Nguyễn Thị Huyền',N'Hai Bà Trưng, Hà Nội','0986310517',N'Nữ','2007-01-22'
+EXEC sp_ThemKH 'KH37',N'Nguyễn Ngọc Huyền',N'Cầu Giấy, Hà Nội','0986301517',N'Nữ','2001-12-22'
+EXEC sp_ThemKH 'KH38',N'Nguyễn Hoài Ngọc',N'Bắc Từ Liêm, Hà Nội','0886300517',N'Nữ','2005-02-02'
+EXEC sp_ThemKH 'KH39',N'Phạm Phương Thảo',N'Nông Cống, Thanh Hóa','0896302517',N'Nữ','2000-04-22'
+EXEC sp_ThemKH 'KH40',N'Nguyễn Bích Ngọc',N'Hai Bà Trưng, Hà Nội','0986320519',N'Nữ','1996-07-16'
+EXEC sp_ThemKH 'KH41',N'Nguyễn Văn Sơn',N'Lục Nam, Bắc Giang','0987320517',N'Nam','1998-02-23'
+EXEC sp_ThemKH 'KH42',N'Trần Tuấn Anh',N'Chí Linh, Hải Dương','0988320117',N'Nam','1995-12-23'
+EXEC sp_ThemKH 'KH43',N'Nguyễn Huy Hoàng',N'Lục Nam, Bắc Giang','0987320528',N'Nam','1998-09-23'
+EXEC sp_ThemKH 'KH45',N'Nguyễn Văn Bách',N'Lục Nam, Bắc Giang','0987320517',N'Nam','2006-11-23'
+EXEC sp_ThemKH 'KH46',N'Nguyễn Văn Nam',N'Lục Nam, Bắc Giang','0987320518',N'Nam','2005-10-23'
+EXEC sp_ThemKH 'KH47',N'Nguyễn Thị Tuyết Dung',N'Lục Ngạn, Bắc Giang','0987320519',N'Nữ','1981-10-12'
+EXEC sp_ThemKH 'KH48',N'Lê Văn Thanh',N'Thanh Miện, Hải Dương','0987320511',N'Nam','1968-12-29'
+EXEC sp_ThemKH 'KH51',N'Phạm Phương Thanh',N'Thanh Miện, Hải Dương','0987320111',N'Nữ','2002-01-03'
+EXEC sp_ThemKH 'KH50',N'Lê Công Tú',N'Kim Thành, Hải Dương','0987320211',N'Nam','1988-11-29'
+EXEC sp_ThemKH 'KH52',N'Trần Đình Trọng',N'Mỹ Hào, Hưng Yên','0987320311',N'Nam','1998-02-28'
+EXEC sp_ThemKH 'KH55',N'Triệu Tiến Anh',N'Thanh Xuân, Hà Nội','0987320711',N'Nam','2000-12-01'
+EXEC sp_ThemKH 'KH56',N'Huỳnh Anh Tuấn',N'Thủ Đức, TP.Hồ Chí Minh','0837322515',N'Nam','1975-08-19'
+EXEC sp_ThemKH 'KH58',N'Huỳnh Nhật Vy',N'Thủ Đức, TP.Hồ Chí Minh','0837322515',N'Nữ','2010-10-10'
+EXEC sp_ThemKH 'KH59',N'Huỳnh Nhật Hạ',N'Thủ Đức, TP.Hồ Chí Minh','0837322516',N'Nữ','2010-10-10'
+EXEC sp_ThemKH 'KH60',N'Phạm Tuyết Linh',N'Cầu Giấy, Hà Nội','0989320259',N'Nữ','2002-25-08'
+
 
 select * from NHANVIEN
 insert into NHANVIEN values('NV01',N'Nguyễn Văn Sơn',N'Kim Thành, Hải Dương','0986172526',N'Nam','1996-03-01')

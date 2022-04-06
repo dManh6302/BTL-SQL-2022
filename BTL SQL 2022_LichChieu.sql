@@ -42,6 +42,9 @@ END
 SELECT * FROM SuatChieu
 SELECT * FROM PHIM
 SELECT * FROM LICHCHIEU
+delete from LICHCHIEU
 EXEC sp_ThemLichChieu 'MP01', 'R1', 'SC001','1-4-2022'
 EXEC sp_ThemLichChieu 'MP01', 'R1', 'SC003','1-4-2022'
 EXEC sp_ThemLichChieu 'MP01', 'R1', 'SC005','1-4-2022'
+
+select * from Seats
