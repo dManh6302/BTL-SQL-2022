@@ -15,7 +15,7 @@ CONSTRAINT FK_seats_Rooms
 	references phongchieu(maphong)
 	on delete CASCADE
 )
-drop table Seats
+
 
 
 ----kiểm tra xem ghế đó có còn trống ko
@@ -73,12 +73,9 @@ begin
 	select * from seats where maphong = @maphong and ngaychieu = @ngaychieu and masc = @masc
 end
 
+exec proc_seatsIN 'R1', '2022-1-4','SC001'
 
-----HÀM TRẢ VỀ STATUS GHẾ TRONG PHÒNG CHỈ ĐỊNH
-create function func_SeatsIn(@maphong char(10))
-returns table
-as
-return	
+
 
 
 

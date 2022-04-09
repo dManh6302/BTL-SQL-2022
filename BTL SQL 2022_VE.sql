@@ -26,7 +26,7 @@ where KHACHHANG.makh = Ve.makh and trangthai = 'Huy'
 alter proc sp_huyVe @mave char(10)
 as
 begin
-	if(EXISTS(SELECT * FROM VE WHERE MAVE = 'SQL0001' AND TRANGTHAI = N'Bình Thường'))
+	if(EXISTS(SELECT * FROM VE WHERE MAVE = @mave AND TRANGTHAI = N'Bình Thường'))
 		begin
 			update Ve set trangthai = N'Đã hủy' where mave = @mave
 			
@@ -59,7 +59,6 @@ begin
 	else
 		print N'Mã vé [' + @mave + N'] đã bị hủy trước đó rồi !'
 end
-
 
 
 --THỦ TỤC THÊM VÉ 
@@ -142,20 +141,32 @@ begin
 			end
 	end
 
-	SELECT * FROM Seats
-	select * from ve
+----VIEW HIỆN RA DOANH THU THEO NGÀY
+CREATE view v_Doanhthu_theoNgay as
+select ve.ngaychieu AS 'Ngay', count(ve.mave) as 'So Luong', sum(LoaiVe.dongia) as 'Tong Thu'
+from Ve inner join LoaiVe
+on Ve.malv = LoaiVe.MaLV and ve.trangthai = N'Bình Thường'
+group by  ve.ngaychieu
 
-	exec sp_themVe 'SQL0001', 'KH01', 'NV01', 'LV001', 'MP01', 'R1', 'SC001', 'R1A1', N'Bình thường','2022-1-4'
+-----VIEW HIỆN RA DOANH THU THEO THÁNG
+CREATE view v_Doanhthu_theoThang as
+select month(ve.ngaychieu) AS N'Tháng', count(ve.mave) as 'So Luong', sum(LoaiVe.dongia) as 'Tong Thu'
+from Ve inner join LoaiVe
+on Ve.malv = LoaiVe.MaLV and ve.trangthai = N'Bình Thường'
+group by  ve.ngaychieu
 
-	EXEC sp_huyVe 'SQL0001'
-	
-	select * from Seats
-	update Seats 
-	set columnA = 0 WHERE mahang = '1'
-	delete from ve
+-----VIEW HIỆN RA DOANH THU THEO NĂM
+CREATE view v_Doanhthu_theoNam as
+select year(ve.ngaychieu) AS N'Năm', count(ve.mave) as 'So Luong', sum(LoaiVe.dongia) as 'Tong Thu'
+from Ve inner join LoaiVe
+on Ve.malv = LoaiVe.MaLV and ve.trangthai = N'Bình Thường'
+group by  ve.ngaychieu
 
-	select * from ve
-	select * from Seats where ngaychieu = '2022-1-4' and masc = 'SC001' AND maphong = 'R1'
 
-	EXEC sp_help VE
-	print N'Bình thường'
+-----VIEW HIỆN RA DOANH THU THEO PHIM
+CREATE view v_Doanhthu_theoPhim as
+select phim.TenPhim AS N'Tên phim', count(ve.mave) as 'So Luong', sum(LoaiVe.dongia) as 'Tong Thu'
+from Ve, LoaiVe, PHIM
+where Ve.malv = LoaiVe.MaLV and ve.trangthai = N'Bình Thường' AND VE.MAPHIM = PHIM.MaPhim
+group by  TenPhim
+
